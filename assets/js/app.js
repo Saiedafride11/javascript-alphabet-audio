@@ -156,11 +156,38 @@
 //--------------------------------------------------------------------
 
 
-const myBtn = document.querySelectorAll(".my-btn");
+// const myBtn = document.querySelectorAll(".my-btn");
+// const btnImg = document.getElementById("btn-img");
+
+// myBtn.forEach(btn => btn.addEventListener("click", () => audioFunc(btn.innerText.split(" ")[1])));
+// document.addEventListener("keypress", e => audioFunc(e.key.toLowerCase()));
+
+// const audioFunc = text => text && (new Audio(`assets/audio/${text}.mp3`).play(), btnImg.src = `assets/img/${text}.png`);
+
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+
+const myBtns = document.querySelectorAll(".my-btn");
 const btnImg = document.getElementById("btn-img");
 
-myBtn.forEach(btn => btn.addEventListener("click", () => audioFunc(btn.innerText.split(" ")[1])));
-document.addEventListener("keypress", e => audioFunc(e.key.toLowerCase()));
+myBtns.forEach(btn => btn.addEventListener("click", () => {
+      myBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      audioFunc(btn.innerText.split(" ")[1]);
+    }));
+document.addEventListener("keypress", e => {
+      const text = e.key.toLowerCase();
+      audioFunc(text)
+      myBtns.forEach(b => b.classList.remove("active"));
+      myBtns.forEach(btn => {
+            if (text === btn.innerText.split(" ")[1].toLowerCase()) {
+                  btn.classList.add("active");
+            }
+      });
+});
 
 const audioFunc = text => text && (new Audio(`assets/audio/${text}.mp3`).play(), btnImg.src = `assets/img/${text}.png`);
 
