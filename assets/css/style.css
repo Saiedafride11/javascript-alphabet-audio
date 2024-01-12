@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+    border: 5px solid #0d6efd;
+    border-radius: 5px;
+    margin: 10px 0px;
+    height:400px;
+}
+.my-btn {
+    margin: 10px;
+    width: 60px;
+    height: 40px;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .my-btn {
+        margin: 3px;
+        width: 45px;
+        height: 27px;
+    }
+    img {
+        height: 160px;
+    }
+}
+
+
